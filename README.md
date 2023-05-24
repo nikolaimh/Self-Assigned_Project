@@ -58,4 +58,4 @@ Ultimately, this points to weather identification being a relatively simple task
 ||
 |    accuracy |             |        |     0.74  |    1372|
 |   macro avg |      0.77   |   0.72 |     0.73  |    1372|
-|weighted avg |      0.75   |   0.74 |     0.74  |    137|2
+|weighted avg |      0.75   |   0.74 |     0.74  |    1372|
