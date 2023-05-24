@@ -6,9 +6,25 @@ This assignment took inspiration from the in-class notebooks and uses the same `
 The weather picture dataset was found [here](https://www.kaggle.com/datasets/jehanbhathena/weather-dataset), uploaded to the public domain by Kaggle user Jehan Bhathena who, in turn, cites Haixia Xiao for the Weather Phenomenon Database. 
 
 ## 2.	Methods
-The image names are loaded as strings and assigned class labels from the directory in which each image was stored, and a dataframe is created containing image name, label, and label map. From this, the image data itself is loaded, resized, and rescaled. The images are split into testing and training segments and the label maps are binarized.
+The dataset was found on Kaggle and contains pictures labelled with the weather they depict, sorted into 11 classes:
 
-The pretrained base model ```VGG16``` is then loaded without its top layers, and new top layers are defined. Learning rate is set and the model is compiled and trained using the training data with 10% of the data set aside for validation. The model trains for 50 epochs, with early stopping enabled if the model does not improve for five epochs in a row, at which point the training history is plotted and a classification report is made based on test data predictions. Both of these are saved to the ```out``` folder, along with the model itself.
+- dew
+- fog/smog
+- frost
+- glaze
+- hail
+- lightning
+- rain
+- rainbow
+- rime
+- sandstorm
+- snow
+
+The dataset had a size of 6882 ```.jpg``` files, of which two turned out to be gifs despite the file extension and were removed. The purpose of this project was to see whether I could train a model to recognize the weather in a picture with an >50% accuracy. I decided to use a pretrained CNN since they generally offer good returns on training times and, after doing some tests with ```Xception```, settled back on ```VGG16``` with which I was already familiar.
+
+In the main script, the image names are loaded as strings and assigned class labels from the directory in which each image was stored, and a dataframe is created containing image name, label, and label map. From this, the image data itself is loaded, resized, and rescaled. The images are split into testing and training segments and the label maps are binarized.
+
+The pretrained base model ```VGG16``` is then loaded without its top layers, and new top layers are defined. Learning rate is set and the model is compiled and trained using the training data with 10% of the data set aside for validation. The model trains for 50 epochs, with early stopping enabled if the model does not improve for five epochs in a row. Finally, the training history is plotted and a classification report is made based on test data predictions, both of which are saved to the ```out``` folder, along with the model itself.
 
 ## 3.	Usage
 Download the dataset from the link in Contributions and place it into the data directory. The script will expect the subfolder containing the images to be named dataset. Two of the ```.jpg``` files, ```4514.jpg``` and ```1187.jpg```, turned out to be gifs and were manually removed before running.
