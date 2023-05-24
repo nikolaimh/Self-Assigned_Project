@@ -26,7 +26,7 @@ def plot_history(H, epochs):
     #plt.show()
 
     # save plot to out folder
-    filepath = os.path.join("..","out","fashion_plot.png")
+    filepath = os.path.join("..","out","weather_plot.png")
     plt.savefig(filepath)
 
     return None
